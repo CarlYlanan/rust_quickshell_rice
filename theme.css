@@ -1,0 +1,182 @@
+/* owo-bar - waybar Vocaloid Nightcore Theme match */
+
+* {
+    font-family: "Fira Sans Semibold", "JetBrainsMono Nerd Font", "Font Awesome 6 Free", sans-serif;
+    border: none;
+    border-radius: 0;
+}
+
+window#owo-bar {
+    background: transparent;
+    border-radius: 12px;
+}
+
+.pill {
+    background: rgba(15, 17, 23, 0.85);
+    border: 2px solid #00BEBE; /* Miku Cyan */
+    border-radius: 12px;
+    padding: 0 12px;
+    margin: 2px 0;
+    min-height: 36px;
+    box-shadow: 0 0 10px rgba(0, 190, 190, 0.4);
+}
+
+/* Workspace module styling */
+.workspace-label {
+    font-family: "Fira Sans Semibold", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #00BEBE; /* Miku Blue */
+    padding: 0 4px;
+    margin-top: 2px;
+}
+
+.workspace-btn {
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 8px;
+    font-family: "JetBrainsMono Nerd Font", "Fira Sans Semibold", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #FF4D6D; /* Teto Pink for inactive/occupied */
+    background: transparent;
+    border: none;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.workspace-btn:hover {
+    background: rgba(255, 77, 109, 0.1);
+    border-radius: 8px;
+    color: #FF4D6D;
+}
+
+.workspace-btn.active {
+    color: #00BEBE; /* Miku Cyan for active */
+    font-weight: 800;
+    border-bottom: 2px solid #00BEBE;
+    text-shadow: 0 0 12px #00BEBE;
+}
+
+.workspace-btn.focused {
+    color: #00BEBE;
+    border-bottom: 2px solid #00BEBE;
+    padding-bottom: 2px;
+    text-shadow: 0 0 12px #00BEBE;
+}
+
+/* Clock module styling */
+.clock-button {
+    min-width: 100px;
+    min-height: 32px;
+    border-radius: 12px;
+    font-family: "Fira Sans Semibold", "JetBrainsMono Nerd Font", sans-serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: #ffffff;
+    background: transparent;
+    border: none;
+    padding: 0 12px;
+}
+
+/* Volume module styling - matches pulseaudio format */
+.volume-button {
+    min-width: 70px;
+    min-height: 32px;
+    border-radius: 12px;
+    font-family: "JetBrainsMono Nerd Font", "Fira Sans Semibold", sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #00BEBE; /* Miku Cyan */
+    background: transparent;
+    border: none;
+    padding: 0 5px;
+}
+
+/* Rotate button styling - matches custom/flip */
+.rotate-button {
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 2px 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.rotate-button,
+.rotate-button image,
+.rotate-button * {
+    background: transparent;
+    background-color: transparent;
+}
+
+.rotate-button:hover {
+    box-shadow: 0 0 12px rgba(0, 190, 190, 0.8);
+    background-color: rgba(0, 190, 190, 0.1);
+    border-radius: 8px;
+}
+
+/* Tray module styling */
+.tray-group {
+    /* tray items handled by status-notifier */
+}
+
+.tray-item {
+    min-width: 21px; /* waybar icon-size: 21 */
+    min-height: 21px;
+    border-radius: 4px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0 5px; /* waybar tray spacing: 10, so 5px each side */
+}
+
+.tray-item:hover {
+    background: rgba(0, 190, 190, 0.1);
+    border-radius: 8px;
+}
+
+.tray-item:active {
+    background: rgba(0, 190, 190, 0.2);
+}
+
+.tray-item.needs-attention {
+    background: #FF4D6D; /* Teto Pink */
+}
+
+/* Workspace color classes - default Teto Pink, active gets Miku Blue */
+.workspace-btn.ws-1 { color: #FF4D6D; }
+.workspace-btn.ws-2 { color: #FF4D6D; }
+.workspace-btn.ws-3 { color: #FF4D6D; }
+.workspace-btn.ws-4 { color: #FF4D6D; }
+.workspace-btn.ws-5 { color: #FF4D6D; }
+.workspace-btn.ws-6 { color: #FF4D6D; }
+.workspace-btn.ws-7 { color: #FF4D6D; }
+.workspace-btn.ws-8 { color: #FF4D6D; }
+.workspace-btn.ws-9 { color: #FF4D6D; }
+
+/* Active workspace (currently opened on this monitor) = Miku Blue */
+.workspace-btn.active {
+    color: #00BEBE;
+    font-weight: 800;
+    border-bottom: 2px solid #00BEBE;
+    text-shadow: 0 0 12px #00BEBE;
+    opacity: 1;
+}
+
+/* Placeholder (next empty workspace) */
+.workspace-btn.placeholder {
+    color: #FF4D6D;
+    opacity: 0.3;
+}
+
+.workspace-btn.placeholder:hover {
+    opacity: 0.5;
+    color: #FF4D6D;
+}
+
+.workspace-btn {
+    transition: color 150ms ease, border-color 150ms ease, opacity 150ms ease, transform 150ms ease;
+}

@@ -1,0 +1,38 @@
+[package]
+name = "owo-bar"
+version = "0.1.0"
+edition = "2024"
+description = "Sekaipop-style top bar for Niri with kanji workspaces"
+license = "MIT"
+
+[features]
+default = ["desktop-ui"]
+gtk-ui = [
+    "dep:chrono",
+    "dep:gtk",
+    "dep:gtk4-layer-shell",
+    "dep:serde",
+    "dep:serde_json",
+    "dep:status-notifier",
+    "dep:tokio",
+]
+desktop-ui = ["gtk-ui"]
+
+[dependencies]
+chrono = { version = "0.4", optional = true }
+gtk = { package = "gtk4", version = "0.11", features = ["v4_8"], optional = true }
+gtk4-layer-shell = { version = "0.8", optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
+serde_json = { version = "1", optional = true }
+status-notifier = { path = "../rice/vendor/status-notifier", optional = true }
+tokio = { version = "1", features = ["rt-multi-thread"], optional = true }
+x11rb = { version = "0.11", features = ["randr"] }
+cairo-rs = { version = "0.22" }
+
+[lib]
+name = "owo_bar"
+path = "src/lib.rs"
+
+[[bin]]
+name = "owo-bar"
+path = "src/main.rs"
