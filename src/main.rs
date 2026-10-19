@@ -19,20 +19,20 @@ const BAR_HEIGHT: i32 = 42;
 
 struct Shell {
     monitors: Vec<MonitorUi>,
-    workspace_stream: Option<WorkspaceStream>,
-    tray_host: Option<Rc<RefCell<StatusNotifierHost>>>,
+    _workspace_stream: Option<WorkspaceStream>,
+    _tray_host: Option<Rc<RefCell<StatusNotifierHost>>>,
 }
 
 struct MonitorUi {
-    output: String,
-    monitor: gdk::Monitor,
-    bar: gtk::Window,
-    alive: Rc<Cell<bool>>,
-    workspace_label: gtk::Label,
-    workspace_buttons_box: gtk::Box,
-    clock_button: gtk::Button,
-    tray_box: gtk::Box,
-    volume_button: gtk::Button,
+    _output: String,
+    _monitor: gdk::Monitor,
+    _bar: gtk::Window,
+    _alive: Rc<Cell<bool>>,
+    _workspace_label: gtk::Label,
+    _workspace_buttons_box: gtk::Box,
+    _clock_button: gtk::Button,
+    _tray_box: gtk::Box,
+    _volume_button: gtk::Button,
     _tray_host: Option<Rc<RefCell<StatusNotifierHost>>>,
 }
 
@@ -55,7 +55,7 @@ pub fn run() {
         let action = args.get(1).and_then(|a| a.to_str()).unwrap_or("bar");
         if let Some(shell) = shell.borrow().as_ref() {
             match action {
-                "bar" => for ui in &shell.monitors { ui.bar.present(); },
+                "bar" => for ui in &shell.monitors { ui._bar.present(); },
                 _ => eprintln!("Usage: owo-bar [bar]"),
             }
             glib::ExitCode::SUCCESS
@@ -90,9 +90,9 @@ fn build_shell(application: &gtk::Application) -> Shell {
             monitors.push(ui);
         }
     }
-    for ui in &monitors { ui.bar.present(); }
+    for ui in &monitors { ui._bar.present(); }
 
-    Shell { monitors, workspace_stream, tray_host }
+    Shell { monitors, _workspace_stream: workspace_stream, _tray_host: tray_host }
 }
 
 fn build_monitor_ui(
@@ -286,15 +286,15 @@ fn build_monitor_ui(
     });
 
     Some(MonitorUi {
-        output: output_name,
-        monitor: monitor.clone(),
-        bar: window,
-        alive,
-        workspace_label,
-        workspace_buttons_box,
-        clock_button,
-        tray_box,
-        volume_button,
+        _output: output_name,
+        _monitor: monitor.clone(),
+        _bar: window,
+        _alive: alive,
+        _workspace_label: workspace_label,
+        _workspace_buttons_box: workspace_buttons_box,
+        _clock_button: clock_button,
+        _tray_box: tray_box,
+        _volume_button: volume_button,
         _tray_host: tray_host.clone(),
     })
 }
